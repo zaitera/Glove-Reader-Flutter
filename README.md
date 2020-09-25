@@ -1,4 +1,4 @@
-# flutter-blue-sample
+# Esp32 BLE reader
 
 Sample Flutter App for Android and iOS that scans for Bluetooth LE devices and displays the services published by the devices.
 

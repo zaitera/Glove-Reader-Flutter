@@ -1,5 +1,5 @@
-name: flutter_blue_example
-description: Demonstrates how to use the flutter_blue plugin.
+name: glove_reader
+description: Reads a glove with esp32 controller and IMUs
 publish_to: "none"
 
 environment:
@@ -7,6 +7,9 @@ environment:
 
 dependencies:
   flutter_blue: ^0.7.2
+  csv: ^4.0.3
+  path_provider: ^0.4.1
+  permission_handler: ^5.0.1
   flutter:
     sdk: flutter
 

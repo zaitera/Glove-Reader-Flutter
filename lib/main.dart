@@ -4,10 +4,13 @@
 
 import 'dart:async';
 import 'dart:math';
+import 'dart:io';
 
+import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
-import 'package:flutter_blue_example/widgets.dart';
+import 'package:glove_reader/widgets.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 void main() {
   runApp(FlutterBlueApp());
@@ -164,6 +167,22 @@ class DeviceScreen extends StatelessWidget {
     ];
   }
 
+  void writeToCsv(List<List<int>> data) async {
+    debugPrint("writeToCsv");
+    String csv = const ListToCsvConverter().convert(data);
+    final Directory directory = Directory('/storage/emulated/0/Glove-Reader');
+    final status = await Permission.storage.status;
+    if (!status.isGranted) {
+      await Permission.storage.request();
+    }
+    directory.create(recursive: true).then((Directory directory) async{
+      final File file = File('${directory.path}/data.csv');
+      await file.writeAsString(csv);
+      debugPrint("done writing");
+      debugPrint("path: ${directory.path}");
+    });
+  }
+
   List<Widget> _buildServiceTiles(List<BluetoothService> services) {
     return services
         .map(
@@ -175,7 +194,11 @@ class DeviceScreen extends StatelessWidget {
                     characteristic: c,
                     onReadPressed: () => c.read(),
                     onWritePressed: () async {
-                      final data = await c.write(_getRandomBytes(), withoutResponse: false);
+                      await c.write(_getRandomBytes());
+                      final data = await c.read();
+                      debugPrint("here test test");
+                      debugPrint(data.toString());
+                      writeToCsv([data]);
                     },
                     onNotificationPressed: () async {
                       await c.setNotifyValue(!c.isNotifying);

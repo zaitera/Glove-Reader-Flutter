@@ -158,7 +158,7 @@ class DeviceScreen extends StatelessWidget {
                 subtitle: Text('${snapshot.data} bytes'),
                 trailing: IconButton(
                   icon: Icon(Icons.edit),
-                  onPressed: () => device.requestMtu(223),
+                  onPressed: () => device.requestMtu(34),
                 ),
               ),
             ),

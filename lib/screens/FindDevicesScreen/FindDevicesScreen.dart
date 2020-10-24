@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
+import 'package:glove_reader/components/ScanResultTile/ScanResultTile.dart';
 import 'dart:async';
 
 import 'package:glove_reader/screens/DeviceScreen/DeviceScreen.dart';
-import 'package:glove_reader/widgets.dart';
 
 class FindDevicesScreen extends StatelessWidget {
   @override

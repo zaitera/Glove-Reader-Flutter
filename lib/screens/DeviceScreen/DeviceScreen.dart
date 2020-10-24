@@ -4,7 +4,9 @@ import 'dart:io';
 import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
-import 'package:glove_reader/widgets.dart';
+import 'package:glove_reader/components/CharacteristicTile/CharacteristicTile.dart';
+import 'package:glove_reader/components/DescriptorTile/DescriptorTile.dart';
+import 'package:glove_reader/components/ServiceTile/ServiceTile.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class DeviceScreen extends StatelessWidget {

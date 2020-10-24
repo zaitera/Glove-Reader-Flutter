@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
 import 'package:glove_reader/screens/FindDevicesScreen/FindDevicesScreen.dart';
 import 'package:glove_reader/screens/BluetoothOffScreen/BluetoothOffScreen.dart';
+import 'package:glove_reader/themes/style.dart';
 
 void main() {
   runApp(FlutterBlueApp());
@@ -15,7 +16,8 @@ class FlutterBlueApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      color: Colors.lightBlue,
+      theme: appTheme(),
+      // color: Colors.lightBlue,
       home: StreamBuilder<BluetoothState>(
           stream: FlutterBlue.instance.state,
           initialData: BluetoothState.unknown,

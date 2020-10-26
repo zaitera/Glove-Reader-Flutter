@@ -15,8 +15,6 @@ doc/api/
 
 .vscode/
 
-.flutter-plugins
-.flutter-plugins-dependencies
 
 # Avoid committing generated Javascript files:
 *.dart.js
@@ -26,3 +24,11 @@ doc/api/
 *.js_
 *.js.deps
 *.js.map
+
+.flutter-plugins
+.flutter-plugins-dependencies
+.idea/Glove-Reader-Flutter.iml
+.idea/codeStyles/Project.xml
+.idea/libraries/Dart_Packages.xml
+.idea/libraries/Dart_SDK.xml
+.idea/libraries/Flutter_Plugins.xml

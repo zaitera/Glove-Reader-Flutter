@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_blue/flutter_blue.dart';
+import 'package:flutter_blue/gen/flutterblue.pbserver.dart';
 
 class AdapterStateTile extends StatelessWidget {
   const AdapterStateTile({Key key, @required this.state}) : super(key: key);

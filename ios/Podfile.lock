@@ -4,8 +4,8 @@ PODS:
   - Flutter (1.0.0)
   - flutter_blue (0.0.1):
     - Flutter
-    - flutter_blue/Protos (= 0.0.1)
-  - flutter_blue/Protos (0.0.1):
+    - glove_reader/Protos (= 0.0.1)
+  - glove_reader/Protos (0.0.1):
     - Flutter
     - Protobuf (~> 3.11.4)
   - Protobuf (3.11.4)
@@ -13,7 +13,7 @@ PODS:
 DEPENDENCIES:
   - e2e (from `.symlinks/plugins/e2e/ios`)
   - Flutter (from `Flutter`)
-  - flutter_blue (from `.symlinks/plugins/flutter_blue/ios`)
+  - flutter_blue (from `.symlinks/plugins/glove_reader/ios`)
 
 SPEC REPOS:
   trunk:
@@ -25,7 +25,7 @@ EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
   flutter_blue:
-    :path: ".symlinks/plugins/flutter_blue/ios"
+    :path: ".symlinks/plugins/glove_reader/ios"
 
 SPEC CHECKSUMS:
   e2e: 967b9b1fc533b7636a3b7a719f840c27f301fe1f

@@ -1,4 +1,4 @@
-package com.pauldemarco.flutter_blue_example;
+package com.pauldemarco.glove_reader;
 
 import android.os.Bundle;
 import dev.flutter.plugins.e2e.E2EPlugin;

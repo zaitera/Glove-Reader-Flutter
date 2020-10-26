@@ -4,9 +4,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
-import 'package:glove_reader/screens/FindDevicesScreen/FindDevicesScreen.dart';
-import 'package:glove_reader/screens/BluetoothOffScreen/BluetoothOffScreen.dart';
 import 'package:glove_reader/themes/style.dart';
+import 'package:glove_reader/screens/BluetoothOffScreen/BluetoothOffScreen.dart';
+import 'package:glove_reader/screens/FindDevicesScreen/FindDevicesScreen.dart';
 
 void main() {
   runApp(FlutterBlueApp());

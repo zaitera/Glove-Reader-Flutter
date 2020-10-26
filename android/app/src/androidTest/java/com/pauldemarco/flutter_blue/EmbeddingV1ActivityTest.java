@@ -2,7 +2,7 @@
 
  import androidx.test.rule.ActivityTestRule;
  import dev.flutter.plugins.e2e.FlutterRunner;
- import com.pauldemarco.flutter_blue_example.EmbeddingV1Activity;
+ import com.pauldemarco.glove_reader.EmbeddingV1Activity;
  import org.junit.Rule;
  import org.junit.runner.RunWith;
 

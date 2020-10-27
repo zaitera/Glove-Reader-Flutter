@@ -1,3 +1,5 @@
 # This is a generated file; do not edit or check into version control.
-e2e=/home/abdullah/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/e2e-0.2.4+4/
-flutter_blue=/home/abdullah/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.7.2/
+e2e=/home/skira/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/e2e-0.2.4+4/
+flutter_blue=/home/skira/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blue-0.7.2/
+path_provider=/home/skira/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-0.4.1/
+permission_handler=/home/skira/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/permission_handler-5.0.1+1/

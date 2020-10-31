@@ -3,6 +3,7 @@ import 'package:flutter_blue/flutter_blue.dart';
 
 import 'package:glove_reader/screens/BluetoothOffScreen/BluetoothOffScreen.dart';
 import 'package:glove_reader/screens/FindDevicesScreen/FindDevicesScreen.dart';
+import 'package:glove_reader/screens/graph_screen/graph_screen.dart';
 
 /// This is the stateful widget that the main application instantiates.
 class Menu extends StatefulWidget {
@@ -24,14 +25,7 @@ class _MenuState extends State<Menu> {
       style: optionStyle,
     ),
     StreamBuilder<BluetoothState>(
-        stream: FlutterBlue.instance.state.asBroadcastStream(
-          onListen: (subscription) {
-            return;
-          },
-          onCancel: (subscription) {
-            return;
-          },
-        ),
+        stream: FlutterBlue.instance.state,
         initialData: BluetoothState.unknown,
         builder: (c, snapshot) {
           final state = snapshot.data;
@@ -40,10 +34,9 @@ class _MenuState extends State<Menu> {
           }
           return BluetoothOffScreen(state: state);
         }),
-    Text(
-      'Index 2: Chart',
-      style: optionStyle,
-    ),
+    Scaffold(
+      body: new GraphScreen(),
+    )
   ];
 
   // void _blueToothState(isItOn) {

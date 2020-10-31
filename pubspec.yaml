@@ -11,6 +11,8 @@ dependencies:
   path_provider: ^0.4.1
   permission_handler: ^5.0.1
   flutter_bloc: ^6.0.6
+  intl: ^0.15.7
+  charts_flutter: ^0.8.1
   flutter:
     sdk: flutter
 

@@ -14,7 +14,8 @@
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:label="glove_reader"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:requestLegacyExternalStorage="true">
         <activity
             android:name="io.flutter.embedding.android.FlutterActivity"
             android:launchMode="singleTop"

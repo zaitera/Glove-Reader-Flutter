@@ -1,3 +1,4 @@
+import 'dart:ffi';
 import 'dart:math';
 
 import 'dart:io';
@@ -8,6 +9,7 @@ import 'package:glove_reader/components/CharacteristicTile/CharacteristicTile.da
 import 'package:glove_reader/components/DescriptorTile/DescriptorTile.dart';
 import 'package:glove_reader/components/ServiceTile/ServiceTile.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:flutter/foundation.dart';
 
 class DeviceScreen extends StatelessWidget {
   const DeviceScreen({Key key, this.device}) : super(key: key);
@@ -18,7 +20,7 @@ class DeviceScreen extends StatelessWidget {
     final math = Random();
     return [00, 01];
   }
-
+  
   void writeToCsv(List<List<int>> data) async {
     debugPrint("writeToCsv");
     String csv = const ListToCsvConverter().convert(data);
@@ -46,11 +48,22 @@ class DeviceScreen extends StatelessWidget {
                     characteristic: c,
                     onReadPressed: () => c.read(),
                     onWritePressed: () async {
-                      await c.write(_getRandomBytes());
-                      final data = await c.read();
-                      debugPrint("here test test");
+                      await device.requestMtu(517);
+                      while( (await device.mtu.first) != 517 ){}
+                      List<List<int>> fulldata = List<List<int>>();
+                      List<int> data = await c.read();
                       debugPrint(data.toString());
-                      writeToCsv([data]);
+                      int counter = data[0];
+                      debugPrint(counter.toString());
+                      fulldata.add(data.skip(1).toList());
+                      debugPrint(counter.toString());
+                      while(--counter > 0){
+                        debugPrint(counter.toString());
+                        data = await c.read();
+                        debugPrint(data.toString());
+                        fulldata.add(data);
+                      }
+                      writeToCsv(fulldata);
                     },
                     onNotificationPressed: () async {
                       await c.setNotifyValue(!c.isNotifying);
@@ -158,7 +171,7 @@ class DeviceScreen extends StatelessWidget {
                 subtitle: Text('${snapshot.data} bytes'),
                 trailing: IconButton(
                   icon: Icon(Icons.edit),
-                  onPressed: () => device.requestMtu(34),
+                  onPressed: () => device.requestMtu(517),
                 ),
               ),
             ),

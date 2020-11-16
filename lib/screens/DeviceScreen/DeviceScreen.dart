@@ -20,11 +20,7 @@ class DeviceScreen extends StatelessWidget {
     final math = Random();
     return [00, 01];
   }
-
-  final FIRST_ITERATION_STATE = 0;
-  final RECEIVING_STATE = 1;
-  final LAST_ITERATION_STATE = 2;
-
+  
   void writeToCsv(List<List<int>> data) async {
     debugPrint("writeToCsv");
     String csv = const ListToCsvConverter().convert(data);

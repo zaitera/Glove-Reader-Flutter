@@ -1,7 +1,8 @@
 from HandReading import HandReading
 import csv
+import os
 
-OBJECT_SIZE = 34
+OBJECT_SIZE = 36
 DATA_FILENAME = 'data.csv'
 
 def partition(array, sliceSize):
@@ -13,13 +14,22 @@ def partition(array, sliceSize):
 
 if __name__ == "__main__":
 
+    csvLen = 0
+    with open(DATA_FILENAME) as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        csvLen = sum(1 for row in csv_reader)
+        csv_file.close()
+
     with open(DATA_FILENAME) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
         bytesData = bytearray()
-        for sublist in csv_reader:
-            for item in sublist:
-                bytesData += (bytes([int(item)]))
+        
+        for i,sublist in enumerate(csv_reader):
+            for j,item in enumerate(sublist):
+                if not(i == csvLen-1 and (j == len(sublist)-1)):
+                    bytesData += (bytes([int(item)]))
+                    
     
     byteObjects = partition(bytesData, OBJECT_SIZE)
 
@@ -27,7 +37,7 @@ if __name__ == "__main__":
     
     for byteobject in byteObjects:
         reading = HandReading()
-        reading.timestamp = int.from_bytes(byteobject[0:4], "big", signed = False)
+        reading.timestamp = int.from_bytes(byteobject[0:4], "little", signed = False)
         currentByte = 4
         for imu in reading.imus:
             imu.accel.append(int(byteobject[currentByte]))
